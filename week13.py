@@ -1,21 +1,18 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# (데이터 측정)년도, (대상)국가, (1인당 연간 의료비)지출액, (평균)기대수명
-health = sns.load_dataset("healthexp")
 
-# 가장 최근 연도인 2020년 데이터를 필터링 후 추출
-health_2020 = health[health['Year']==2020]
-# print(health_2020)
-# print(health_2020.sort_values(by=['Life_Expectancy'], ascending=False))
-# print(health_2020.sort_values('Life_Expectancy', ascending=False))
-# print(health_2020.sort_values(ascending=False, by=['Life_Expectancy']))
-# print(health_2020.sort_values(ascending=False, 'Life_Expectancy'))  # error
-
-# 전체 데이터셋에서 의료비 지출이 5000달러 이상인 데이터 추출
-# high_spending = health[health['Spending_USD']>=5000]
-# print(high_spending)
-# 어떤 국가들이 있는지 확인
+# 피실험자, 측정시간, 자극종류, 뇌부위, 뇌측정신호
+fmri = sns.load_dataset("fmri")
+# print(fmri.head())
+# print(fmri.tail())
+# print(fmri.describe())
+# print(fmri.info())
+# print(fmri.groupby(['region', 'event'])['signal'].mean())
+# print(fmri.groupby(['region', 'event'])['signal'].std())
+# print(fmri.groupby(['region', 'event'])['signal'].max())
+# print(fmri.groupby(['region', 'event'])['signal'].min())
+print(fmri.groupby(['region', 'event'])['signal'].agg(['mean', 'std', 'max', 'min']))
 # print(high_spending['Country'].unique())
 # 국가별 평균 의료비 지출과 평균 기대수명 구하기
 # country_mean = health.groupby('Country')[['Spending_USD', 'Life_Expectancy']].mean()
