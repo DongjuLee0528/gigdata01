@@ -3,14 +3,15 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 df = pd.DataFrame({
-    'pclass': [1, 2, 3],
-    'survived': [0.63, 0.47, 0.24]
+    'Spending_USD': [2000, 4000, 6000, 8000],
+    'Life_Expectancy': [70, 75, 80, 82]
 })
 
-sns.barplot(
+sns.relplot(
     data=df,
-    x='pclass',
-    y='survived'
+    x='Spending_USD',
+    y='Life_Expectancy',
+    kind='scatter'
 )
 
 plt.show()
