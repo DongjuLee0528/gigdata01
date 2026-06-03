@@ -1,3 +1,16 @@
-import numpy as np
-array08 = np.random.random((2, 3, 3))
-print(array08)
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+df = pd.DataFrame({
+    'pclass': [1, 2, 3],
+    'survived': [0.63, 0.47, 0.24]
+})
+
+sns.barplot(
+    data=df,
+    x='pclass',
+    y='survived'
+)
+
+plt.show()
